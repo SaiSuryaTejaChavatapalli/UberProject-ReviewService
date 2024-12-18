@@ -16,13 +16,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-@Table(name = "bookingreview")
-public class Review {
 
-    @Id // Primary key of the table
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Table(name = "bookingreview")
+public class Review extends BaseModel {
 
     @Column(nullable = false)
     private String content;
@@ -30,14 +26,5 @@ public class Review {
     private Double rating;
 
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate // Tells spring that only handle it for object creation
-    private Date createdAt;
 
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP) // Tells spring about the format of Date Object to be stored i.e Date/ Time / TimeStamp
-    @LastModifiedDate // Tells spring that only handle it for object update
-    private Date updatedAt;
 }
