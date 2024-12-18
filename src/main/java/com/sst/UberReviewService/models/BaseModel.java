@@ -1,6 +1,8 @@
 package com.sst.UberReviewService.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -8,14 +10,16 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.util.Date;
 
 @EntityListeners(AuditingEntityListener.class)
+@Getter
+@Setter
 @MappedSuperclass
 // Handling inheritance in Spring Data JPA
 // No Table for the parent class
 // One Table for each child class having it's own attributes & parent class attribute.
-public class BaseModel {
-
+public abstract class BaseModel {
+// Adding abstract, will make sure no one creates object out of it
     @Id // Primary key of the table
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     @Column(nullable = false)
