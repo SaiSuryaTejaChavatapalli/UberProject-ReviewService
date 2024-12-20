@@ -1,6 +1,8 @@
 package com.sst.UberReviewService.services;
 
+import com.sst.UberReviewService.models.Booking;
 import com.sst.UberReviewService.models.Review;
+import com.sst.UberReviewService.repositories.BookingRepository;
 import com.sst.UberReviewService.repositories.ReviewRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
@@ -11,10 +13,15 @@ import java.util.List;
 @Service
 public class ReviewService implements CommandLineRunner {
 
-    private ReviewRepository reviewRepository;
+   final private ReviewRepository reviewRepository;
 
-    public ReviewService(ReviewRepository reviewRepository){
+   final private BookingRepository bookingRepository;
+
+    public ReviewService(
+            ReviewRepository reviewRepository,
+            BookingRepository bookingRepository){
         this.reviewRepository=reviewRepository;
+        this.bookingRepository=bookingRepository;
     }
 
     @Override
@@ -24,13 +31,23 @@ public class ReviewService implements CommandLineRunner {
                 .content("Amazing ride quality")
                 .rating(3.8)
                 .build();
-        System.out.println(r);
-        reviewRepository.save(r);
 
-        List<Review> reviews=reviewRepository.findAll();
-        for(Review review:reviews){
-            System.out.println(review.getContent());
-        }
+        Booking b= Booking.builder()
+                .startTime(new Date())
+                .endTime(new Date())
+                .review(r)
+                .build();
+
+//        reviewRepository.save(r);
+   bookingRepository.save(b);
+
+        System.out.println(r);
+
+
+//        List<Review> reviews=reviewRepository.findAll();
+//        for(Review review:reviews){
+//            System.out.println(review.getContent());
+//        }
         //reviewRepository.deleteById(2L);
     }
 }

@@ -13,9 +13,11 @@ import java.util.Date;
 @Builder
 public class Booking extends BaseModel{
 
-    @OneToOne
-    private Review review; // We have a 1:1 relationship between booking and review
-    // Whenever we do composition , we have to do mapping
+  @OneToOne(cascade = {CascadeType.PERSIST})
+    //@OneToOne
+    private Review review;
+    // We have a 1:1 relationship between booking and review
+    // Whenever we do Entity as a composition , we have to do mapping
     @Enumerated(value = EnumType.STRING)
     private BookingStatus bookingStatus;
 
