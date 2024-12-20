@@ -13,7 +13,7 @@ import java.util.Date;
 @Builder
 public class Booking extends BaseModel{
 
-  @OneToOne(cascade = {CascadeType.PERSIST})
+  @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     //@OneToOne
     private Review review;
     // We have a 1:1 relationship between booking and review
