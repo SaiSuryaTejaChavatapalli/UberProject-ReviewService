@@ -25,7 +25,7 @@ public class Driver extends  BaseModel{
     // 1:n Driver: Bookings
     // Driver has many bookings
 
-    @OneToMany(mappedBy = "driver" ,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "driver" ,fetch = FetchType.LAZY)
     private List<Booking> bookings=new ArrayList<>();
 
 

@@ -36,10 +36,16 @@ public class DriverService implements CommandLineRunner {
 //            }
 //        }
 
-        Optional<Driver> driver=driverRepository.findById(1L);
-        if(driver.isPresent()){
-            System.out.println(driver.get().getName());
-        }
+//        Optional<Driver> driver=driverRepository.findById(1L);
+//        if(driver.isPresent()){
+//            System.out.println(driver.get().getName());
+//        }
+
+       Optional<Driver> d= driverRepository.rawFindByIdAndLicenseNumber(1L,"AP1234");
+       if(d.isPresent()){
+           System.out.println("RAW QUERY: "+ d.get().getName());
+       }
+
     }
 
 

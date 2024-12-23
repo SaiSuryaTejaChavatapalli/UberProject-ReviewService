@@ -13,6 +13,11 @@ import java.util.Date;
 @Builder
 public class Booking extends BaseModel{
 
+  // 1:1 - Default Fetch Mode : Eager
+  // 1:n - Default: Lazy
+  // m:n - Default: Lazy
+  // m:1 - Default : Eager
+
   @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     //@OneToOne
     private Review review;
