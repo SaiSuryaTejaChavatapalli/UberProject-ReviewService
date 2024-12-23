@@ -2,6 +2,7 @@ package com.sst.UberReviewService.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
@@ -24,7 +25,7 @@ public class Driver extends  BaseModel{
     // 1:n Driver: Bookings
     // Driver has many bookings
 
-    @OneToMany(mappedBy = "driver")
+    @OneToMany(mappedBy = "driver" ,fetch = FetchType.EAGER)
     private List<Booking> bookings=new ArrayList<>();
 
 
