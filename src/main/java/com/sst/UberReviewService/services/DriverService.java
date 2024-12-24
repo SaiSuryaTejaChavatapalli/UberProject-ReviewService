@@ -41,15 +41,15 @@ public class DriverService implements CommandLineRunner {
 //            System.out.println(driver.get().getName());
 //        }
 
-       Optional<Driver> d= driverRepository.rawFindByIdAndLicenseNumber(1L,"AP1234");
-       if(d.isPresent()){
-           System.out.println("RAW QUERY: "+ d.get().getName());
-       }
-
-        Optional<Driver> d1= driverRepository.hqlFindByIdAndLicense(1L,"AP1234");
-        if(d1.isPresent()){
-            System.out.println("Hibernate QUERY: "+ d1.get().getName());
-        }
+//       Optional<Driver> d= driverRepository.rawFindByIdAndLicenseNumber(1L,"AP1234");
+//       if(d.isPresent()){
+//           System.out.println("RAW QUERY: "+ d.get().getName());
+//       }
+//
+//        Optional<Driver> d1= driverRepository.hqlFindByIdAndLicense(1L,"AP1234");
+//        if(d1.isPresent()){
+//            System.out.println("Hibernate QUERY: "+ d1.get().getName());
+//        }
 
     }
 
