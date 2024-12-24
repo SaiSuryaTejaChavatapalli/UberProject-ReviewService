@@ -23,5 +23,4 @@ public interface DriverRepository extends JpaRepository<Driver,Long> {
 
     List<Driver> findAllByIdIn(List<Long> driverIds);
 
-
 }

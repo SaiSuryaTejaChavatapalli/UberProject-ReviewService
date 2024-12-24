@@ -18,7 +18,7 @@ public class Booking extends BaseModel{
   // m:n - Default: Lazy
   // m:1 - Default : Eager
 
-  @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
     //@OneToOne
     private Review review;
     // We have a 1:1 relationship between booking and review
@@ -34,10 +34,10 @@ public class Booking extends BaseModel{
 
     private Long totalDistance;
 
-    @ManyToOne
+   @ManyToOne(fetch = FetchType.LAZY)
     private Driver driver;
 
-    @ManyToOne
+  @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger;
 
 }

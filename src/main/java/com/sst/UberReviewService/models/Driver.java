@@ -28,7 +28,7 @@ public class Driver extends  BaseModel{
     // Driver has many bookings
 
     @OneToMany(mappedBy = "driver" ,fetch = FetchType.LAZY)
-    @Fetch(FetchMode.SUBSELECT)
+    //@Fetch(FetchMode.SUBSELECT)
     private List<Booking> bookings=new ArrayList<>();
 
 
