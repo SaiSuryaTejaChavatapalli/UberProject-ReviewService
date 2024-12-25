@@ -12,12 +12,12 @@ import java.util.List;
 
 
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+//@Entity
+//@Getter
+//@Setter
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Builder
 public class Student extends BaseModel {
 
     private String name;

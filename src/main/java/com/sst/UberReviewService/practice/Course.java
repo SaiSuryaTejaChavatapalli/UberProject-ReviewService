@@ -8,12 +8,12 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+//@Entity
+//@Getter
+//@Setter
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Builder
 public class Course extends BaseModel {
 
     private String name;

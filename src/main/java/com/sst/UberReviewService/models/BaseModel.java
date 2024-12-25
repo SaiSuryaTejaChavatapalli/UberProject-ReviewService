@@ -19,7 +19,7 @@ import java.util.Date;
 public abstract class BaseModel {
 // Adding abstract, will make sure no one creates object out of it
     @Id // Primary key of the table
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)

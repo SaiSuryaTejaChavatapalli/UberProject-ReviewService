@@ -23,6 +23,6 @@ public interface DriverRepository extends JpaRepository<Driver,Long> {
 
     List<Driver> findAllByIdIn(List<Long> driverIds);
 
-    //https://medium.com/swlh/introduction-of-flyway-with-spring-boot-d7c11145d012
+    // https://medium.com/swlh/introduction-of-flyway-with-spring-boot-d7c11145d012
 
 }
