@@ -16,6 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Table(name = "booking_review")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Review extends BaseModel {
@@ -24,7 +25,5 @@ public class Review extends BaseModel {
     private String content;
 
     private Double rating;
-
-
 
 }
