@@ -18,11 +18,7 @@ public class Booking extends BaseModel{
   // m:n - Default: Lazy
   // m:1 - Default : Eager
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
-    //@OneToOne
-    private Review review;
-    // We have a 1:1 relationship between booking and review
-    // Whenever we do Entity as a composition , we have to do mapping
+
     @Enumerated(value = EnumType.STRING)
     private BookingStatus bookingStatus;
 

@@ -18,8 +18,10 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     List<Review> findAllByCreatedAtBefore(Date date);
 
-    @Query("SELECT r FROM Booking b inner join Review r on b.review=r where b.id= :bookingId")
-    Review findReviewByBookingId(Long bookingId);
+
+
+//    @Query("SELECT r FROM Booking b inner join Review r on b.review=r where b.id= :bookingId")
+//    Review findReviewByBookingId(Long bookingId);
 
 
 }

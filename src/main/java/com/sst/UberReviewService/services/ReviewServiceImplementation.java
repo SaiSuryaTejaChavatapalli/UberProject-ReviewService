@@ -2,10 +2,12 @@ package com.sst.UberReviewService.services;
 
 import com.sst.UberReviewService.models.Review;
 import com.sst.UberReviewService.repositories.ReviewRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ReviewServiceImplementation implements ReviewService{
 
     ReviewRepository reviewRepository;
@@ -32,6 +34,11 @@ public class ReviewServiceImplementation implements ReviewService{
         } catch (Exception e) {
             return false;
         }
+    }
+
+    @Override
+    public Review publishReview(Review review) {
+        return reviewRepository.save(review);
     }
 
 }
