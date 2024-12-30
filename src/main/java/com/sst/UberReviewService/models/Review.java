@@ -16,7 +16,7 @@ import lombok.*;
 public class Review extends BaseModel {
 
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
     private Booking booking;
     // We have a 1:1 relationship between booking and review
