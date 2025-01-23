@@ -1,5 +1,6 @@
 package com.sst.UberReviewService.controllers;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sst.UberReviewService.adapters.CreateReviewDtoToReviewAdapter;
 import com.sst.UberReviewService.dtos.CreateReviewDto;
 import com.sst.UberReviewService.dtos.ReviewDto;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/reviews")
@@ -27,6 +29,14 @@ public class ReviewController {
     @GetMapping
     public List<Review> getReviews(){
         return reviewServiceImplementation.findAllReviews();
+    }
+
+
+    @GetMapping("/{reviewId}")
+    public ResponseEntity<?> getReviewById( @PathVariable Long reviewId){
+        Optional<ReviewDto> review=reviewServiceImplementation.findReviewById(reviewId);
+
+        return new ResponseEntity<>(review, HttpStatus.OK);
     }
 
     @PostMapping

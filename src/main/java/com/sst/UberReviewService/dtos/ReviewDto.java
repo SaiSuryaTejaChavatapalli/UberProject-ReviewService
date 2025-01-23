@@ -1,5 +1,6 @@
 package com.sst.UberReviewService.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.util.Date;
@@ -9,6 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
 public class ReviewDto {
     private Long id;
     private String content;

@@ -1,5 +1,6 @@
 package com.sst.UberReviewService.services;
 
+import com.sst.UberReviewService.dtos.ReviewDto;
 import com.sst.UberReviewService.models.Review;
 import com.sst.UberReviewService.repositories.ReviewRepository;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,21 @@ public class ReviewServiceImplementation implements ReviewService{
         this.reviewRepository=reviewRepository;
     }
 
+    private ReviewDto convertToDto(Review review) {
+        return ReviewDto.builder()
+                .id(review.getId())
+                .content(review.getContent())
+                .rating(review.getRating())
+                .booking(review.getBooking() != null ? review.getBooking().getId() : null) // Assuming `Booking` is an entity
+                .createdAt(review.getCreatedAt())
+                .updatedAt(review.getUpdatedAt())
+                .build();
+    }
+
     @Override
-    public Optional<Review> findReviewById(Long id) {
-        return reviewRepository.findById(id);
+    public Optional<ReviewDto> findReviewById(Long id) {
+         return reviewRepository.findById(id)
+                .map(this::convertToDto);
     }
 
     @Override
